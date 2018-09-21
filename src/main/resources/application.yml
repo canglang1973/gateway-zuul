@@ -1,0 +1,16 @@
+server:
+  port: 9000
+zuul:
+  routes:
+#    pro:
+#      path: /router/rest/**
+#      url: http://gw.api.winxuan.com/router/rest
+    dev:
+      path: /router/rest/**
+      url: http://sandbox.api.winxuan.com/router/rest
+  host:
+     #zuul配置
+    max-per-route-connections: 50
+    max-total-connections: 200
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
