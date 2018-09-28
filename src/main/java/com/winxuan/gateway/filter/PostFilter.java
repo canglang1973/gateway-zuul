@@ -39,9 +39,15 @@ public class PostFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        System.out.println("=============POST Filter================");
+        System.out.println("=============PostFilter================");
+//        int i=1/0;
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletResponse response = requestContext.getResponse();
+        HttpServletRequest request = requestContext.getRequest();
+        // true 对该请求进行路由,false过滤该请求不进行路由
+        requestContext.setSendZuulResponse(true);
+
+
         return null;
     }
 }

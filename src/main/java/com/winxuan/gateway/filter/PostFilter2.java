@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author leitao.
@@ -17,15 +17,15 @@ import java.util.Map;
  * @description:
  **/
 @Component
-public class AuthroizeFilter extends ZuulFilter {
+public class PostFilter2 extends ZuulFilter {
     @Override
     public String filterType() {
-        return FilterConstants.PRE_TYPE;
+        return FilterConstants.POST_TYPE;
     }
 
     @Override
     public int filterOrder() {
-        return 0;
+        return 10;
     }
 
     @Override
@@ -35,11 +35,7 @@ public class AuthroizeFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        RequestContext requestContext = RequestContext.getCurrentContext();
-        HttpServletRequest request = requestContext.getRequest();
-        Map<String, String[]> parameterMap = request.getParameterMap();
-        System.out.println("=============鉴权Filter================");
-        System.out.println(parameterMap.toString());
+        System.out.println("=============PostFilter 10================");
         return null;
     }
 }

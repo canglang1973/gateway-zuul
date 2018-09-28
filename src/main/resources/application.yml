@@ -2,11 +2,8 @@ server:
   port: 9000
 zuul:
   routes:
-#    pro:
-#      path: /router/rest/**
-#      url: http://gw.api.winxuan.com/router/rest
     dev:
-      path: /router/rest/**
+      path: /router/rest
       url: http://sandbox.api.winxuan.com/router/rest
   host:
      #zuul配置
